@@ -20,7 +20,7 @@ Un jeu de gestion dans le navigateur : vous êtes le studio d'un MMORPG à l'anc
 ### 2. Récupérer le projet
 
 ```bash
-git clone https://github.com/<compte>/mmozeroth.git
+git clone https://github.com/Sebiria/mmozeroth.git
 cd mmozeroth
 npm install
 ```
@@ -89,7 +89,7 @@ A browser management game: you run the studio behind an old-school MMORPG. You f
 ### 2. Get the project
 
 ```bash
-git clone https://github.com/<account>/mmozeroth.git
+git clone https://github.com/Sebiria/mmozeroth.git
 cd mmozeroth
 npm install
 ```
@@ -133,3 +133,7 @@ The game is saved automatically in the browser. The **Export** and **Import** bu
 - `src/sim/`: the simulation, in a Web Worker (players, combat, mood, instance, career economy).
 - `src/game/`, `src/ui/`: rendering (PixiJS) and interface.
 - `tools/extract/`: the extraction tool, with its own readers for the client formats (MPQ archives, DBC, BLP, ADT, M2) and a small software renderer that turns 3D models into images.
+
+---
+
+Licence / License : [MIT](LICENSE) (le code uniquement / code only).
