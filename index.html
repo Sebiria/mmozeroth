@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMO'ZEROTH (prototype)</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1a17; font-family: system-ui, sans-serif; color: #e8dcc0; }
+      .box { position: fixed; background: rgba(20, 16, 12, .85); border: 1px solid #5a4630; border-radius: 6px; font-size: 13px; }
+      #left { position: fixed; top: 8px; left: 8px; max-width: calc(100% - 300px); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+      #left .box { position: static; }
+      #topbar { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 5px 6px; }
+      #topbar .group { display: flex; gap: 2px; align-items: center; }
+      #topbar .sep { width: 1px; align-self: stretch; background: #5a4630; margin: 0 4px; }
+      #topbar input { width: 56px; }
+      #topbar .status { color: #b8e0a0; margin-left: 6px; }
+      #hud { padding: 6px 10px; pointer-events: none; }
+      #toolbar { display: flex; flex-direction: column; gap: 4px; padding: 6px; }
+      #menu { position: fixed; inset: 0; background: rgba(10, 8, 6, .82); display: flex; align-items: center; justify-content: center; z-index: 10; }
+      #menu[hidden] { display: none; }
+      #menu .card { width: 380px; padding: 22px 26px; }
+      #menu h1 { margin: 0; color: #f2c230; font-size: 30px; letter-spacing: 1px; }
+      #menu .sub { color: #a8987a; margin: 4px 0 18px; }
+      #menu button { display: block; width: 100%; text-align: left; margin: 8px 0; padding: 9px 12px; }
+      #menu button small { display: block; color: #a8987a; }
+      #menu button:disabled { opacity: .45; cursor: default; }
+      #menu .error { color: #ff8a60; }
+      #toolbar button { width: 96px; text-align: left; }
+      #panel { top: 8px; right: 8px; width: 240px; padding: 10px 12px; max-height: calc(100% - 40px); overflow: auto; }
+      #panel h3 { margin: 0 0 8px; font-size: 15px; color: #f2c230; display: flex; align-items: center; gap: 6px; }
+      img.icon { border: 1px solid #5a4630; border-radius: 3px; }
+      #panel label { display: block; margin: 6px 0; }
+      #panel input, #panel select { display: block; width: 100%; box-sizing: border-box; margin-top: 2px; }
+      #panel .muted, #hint { color: #a8987a; }
+      #hint { bottom: 8px; left: 440px; padding: 6px 12px; pointer-events: none; white-space: nowrap; }
+      #chat { bottom: 8px; left: 8px; width: 420px; height: 170px; display: flex; flex-direction: column; padding: 6px 8px; }
+      #chat .chat-title { color: #d8c08a; font-weight: bold; margin-bottom: 4px; }
+      #chat .chat-list { overflow-y: auto; flex: 1; }
+      #chat .chat-bad { color: #f0a080; }
+      #chat .chat-good { color: #b8e0a0; }
+      #chat .chat-system { color: #ffd060; font-style: italic; }
+      #panel .gauge { height: 10px; background: #2e241a; border: 1px solid #5a4630; border-radius: 3px; overflow: hidden; }
+      #panel .gauge div { height: 100%; }
+      button, input, select { font: inherit; background: #2e241a; color: #e8dcc0; border: 1px solid #5a4630; border-radius: 4px; padding: 4px 6px; }
+      button { cursor: pointer; }
+      button:hover { background: #3e3020; }
+      button.active { background: #6a4c22; border-color: #f2c230; }
+      button.danger { margin-top: 10px; border-color: #8a3a2a; }
+      #toolbar .sep { height: 1px; background: #5a4630; margin: 2px 0; }
+      #panel h4 { margin: 12px 0 4px; font-size: 13px; color: #d8c08a; }
+      #panel .warn { color: #ff8a60; margin: 4px 0; }
+      #panel .good { color: #7fd07f; margin: 4px 0; }
+      #panel button.link { background: none; border: none; padding: 0; color: #a8987a; }
+      #panel .quest-link { margin: 4px 0; }
+      #panel .quest-link button { display: block; width: 100%; text-align: left; }
+      #panel .quest-link small, #panel [data-qid] { color: #a8987a; }
+      #panel .item { display: inline-flex; align-items: center; gap: 5px; }
+      #panel button.item-link { display: block; width: 100%; text-align: left; margin: 3px 0; color: inherit; }
+      #panel button.item-link small { color: #a8987a; }
+      #panel .gear { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+      #panel .loot-row { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+      #panel .loot-row label { margin: 0; }
+      #panel .loot-row input { width: 52px; }
+      #panel .boss { border: 1px solid #5a4630; border-radius: 4px; padding: 6px; margin: 6px 0; }
+    </style>
+  </head>
+  <body>
+    <div id="left">
+      <div id="topbar" class="box"></div>
+      <div id="hud" class="box"></div>
+      <div id="toolbar" class="box"></div>
+    </div>
+    <div id="panel" class="box"></div>
+    <div id="hint" class="box"></div>
+    <div id="chat" class="box"></div>
+    <div id="menu" hidden><div class="card box"></div></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

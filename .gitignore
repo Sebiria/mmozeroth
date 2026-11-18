@@ -1,0 +1,13 @@
+node_modules/
+dist/
+# Pack de ressources extrait du client 3.3.5a : ne jamais l'envoyer sur GitHub
+resource-pack/
+*.mpq
+*.MPQ
+# Chemins propres à ton ordinateur (outil d'extraction)
+extract.local.json
+
+# Outils locaux (aperçu de développement)
+.claude/
+# Cahier des charges (document de travail, son titre cite le jeu d origine)
+*.pdf

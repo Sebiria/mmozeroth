@@ -1,0 +1,20 @@
+{
+  "name": "mmozeroth",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && tsc --noEmit -p tools && vite build",
+    "preview": "vite preview",
+    "extract": "node tools/extract/extract.ts"
+  },
+  "dependencies": {
+    "pixi.js": "8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vite": "8.3.8"
+  }
+}
